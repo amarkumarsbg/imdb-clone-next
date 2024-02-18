@@ -2,6 +2,11 @@ import Results from "@/components/Results";
 import React from "react";
 import { resolve } from "styled-jsx/css";
 
+// Fix the problem for "search params object is empty in production with next 13 app dir"
+
+// for more info "https://github.com/vercel/next.js/issues/43077"
+
+export const dynamic = "force-dynamic"; // this is the fix
 const API_KEY = process.env.API_KEY;
 
 export default async function Home({ searchParams }) {
